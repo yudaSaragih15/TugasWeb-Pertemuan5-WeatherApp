@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aura Weather</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="dashboard-wrapper">
+    <header class="navbar">
+        <div class="brand">
+            <i class="fa-solid fa-cloud-sun"></i>
+            <span>Aura Weather</span>
+        </div>
+        
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="cityInput" placeholder="Search Location..." />
+            <button id="searchBtn">Cari</button>
+        </div>
+
+        <div class="nav-right">
+            <div class="toggle-unit">
+                <button id="unitC" class="active">°C</button>
+                <button id="unitF">°F</button>
+            </div>
+            <i class="fa-regular fa-bell icon-btn"></i>
+            <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
+        </div>
+    </header>
+
+    <div class="loading" id="loading">⏳ Sedang memuat data...</div>
+    <div class="error-msg" id="errorMsg"></div>
+
+    <main class="weather-info" id="weatherInfo">
+        <div class="main-grid">
+            
+            <section class="card hero-card">
+                <div class="hero-top">
+                    <div>
+                        <h2 id="cityName" class="city-name">-</h2>
+                        <span id="dateTime" class="date-time">-</span>
+                    </div>
+                </div>
+
+                <div class="hero-center">
+                    <div class="weather-icon" id="weatherIcon">
+                        <img src="" alt="icon" />
+                    </div>
+                    <div class="hero-temp-box">
+                        <div class="temperature" id="temperature">--°C</div>
+                        <div class="feels-like">FEELS LIKE <span id="feelsLike">--°</span></div>
+                        <div class="description" id="description">-</div>
+                    </div>
+                </div>
+
+                <div class="hero-bottom-stats">
+                    <div class="stat-item">
+                        <span>UV INDEX:</span>
+                        <strong id="uvIndex">-</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>WIND:</span>
+                        <strong id="windSpeed">-</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>HUMIDITY:</span>
+                        <strong id="humidity">-</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>VISIBILITY:</span>
+                        <strong id="visibility">-</strong>
+                    </div>
+                </div>
+            </section>
+
+            <section class="widgets-group">
+                <div class="card mini-card">
+                    <span class="card-title">Air Quality Index</span>
+                    <div class="aqi-circle" id="aqiCircle">
+                        <span class="aqi-val" id="aqiVal">-</span>
+                        <span class="aqi-status" id="aqiStatus">-</span>
+                    </div>
+                </div>
+
+                <div class="card mini-card">
+                    <span class="card-title">Wind & Gusts</span>
+                    <div class="widget-value" id="windValue">- <small>km/h</small></div>
+                    <div class="widget-sub" id="windGust">-</div>
+                </div>
+
+                <div class="card mini-card">
+                    <span class="card-title">Precipitation</span>
+                    <div class="widget-value" id="popValue">- <small>chance</small></div>
+                    <div class="widget-sub" id="rainVolume">-</div>
+                </div>
+
+                <div class="card mini-card">
+                    <span class="card-title">UV Index</span>
+                    <div class="widget-value" id="uvValue">-</div>
+                    <div class="widget-sub" id="uvStatus">-</div>
+                </div>
+            </section>
+
+            <section class="card hourly-card">
+                <span class="card-title">Hourly Forecast</span>
+                <div class="chart-container">
+                    <canvas id="hourlyChart"></canvas>
+                </div>
+            </section>
+
+            <section class="card weekly-card">
+                <span class="card-title">Weekly Forecast</span>
+                <div class="weekly-list" id="weeklyList">
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="history-section">
+        <h3>📜 Riwayat Pencarian</h3>
+        <div class="history-list" id="historyList"></div>
+        <button class="clear-history" id="clearHistory">Hapus riwayat</button>
+    </footer>
+</div>
+
+<script src="config.js"></script>
+<script src="script.js" defer></script>
+</body>
+</html>

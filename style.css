@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background: #0b0f17;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.dashboard-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    background: rgba(18, 24, 38, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.brand {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand i { color: #38bdf8; }
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 30px;
+    padding: 6px 16px;
+    width: 360px;
+}
+
+.search-box i { color: #64748b; font-size: 0.9rem; }
+
+.search-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding-left: 10px;
+    width: 100%;
+    font-size: 0.85rem;
+}
+
+.search-box button {
+    background: #38bdf8;
+    border: none;
+    color: #0b0f17;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.toggle-unit {
+    display: flex;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 3px;
+    border-radius: 20px;
+}
+
+.toggle-unit button {
+    background: transparent;
+    border: none;
+    color: #64748b;
+    padding: 4px 10px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.toggle-unit button.active {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.icon-btn { color: #94a3b8; cursor: pointer; }
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+.loading, .error-msg {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+.loading { color: #38bdf8; display: none; }
+.loading.show { display: block; }
+.error-msg { color: #ef4444; display: none; }
+.error-msg.show { display: block; }
+
+.weather-info { display: none; }
+.weather-info.show { display: block; }
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 16px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.hero-card {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(15, 23, 42, 0.6));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.city-name { font-size: 1.1rem; letter-spacing: 0.5px; }
+.date-time { font-size: 0.75rem; color: #94a3b8; }
+
+.hero-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.weather-icon img {
+    width: 100px;
+    height: 100px;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
+}
+
+.hero-temp-box { text-align: left; }
+.temperature { font-size: 3.8rem; font-weight: 700; line-height: 1; }
+.feels-like { font-size: 0.75rem; color: #94a3b8; margin-top: 4px; }
+.description { font-size: 1rem; color: #38bdf8; font-weight: 500; text-transform: capitalize; }
+
+.hero-bottom-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.7rem;
+}
+
+.stat-item span { display: block; color: #64748b; margin-bottom: 2px; }
+.stat-item strong { color: #e2e8f0; font-weight: 600; }
+
+.widgets-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.mini-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.aqi-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid #10b981;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.aqi-val { font-size: 1.1rem; font-weight: 700; }
+.aqi-status { font-size: 0.6rem; color: #10b981; }
+
+.widget-value { font-size: 1.8rem; font-weight: 700; }
+.widget-value small { font-size: 0.8rem; color: #94a3b8; font-weight: 400; }
+.widget-sub { font-size: 0.75rem; color: #64748b; margin-top: 4px; }
+
+.hourly-card { grid-column: span 1; }
+.weekly-card { grid-column: span 1; }
+
+.chart-container { height: 110px; width: 100%; }
+
+.weekly-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.day-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+}
+
+.day-col i { color: #f59e0b; font-size: 1rem; }
+.day-col small { color: #94a3b8; font-size: 0.7rem; }
+
+.history-section {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.history-section h3 { font-size: 0.75rem; color: #64748b; margin-bottom: 8px; }
+.history-list { display: flex; gap: 8px; flex-wrap: wrap; }
+.history-list button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    padding: 4px 12px;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+.clear-history { background: none; border: none; color: #ef4444; font-size: 0.7rem; cursor: pointer; margin-top: 6px; }
+
+@media (max-width: 900px) {
+    .main-grid { grid-template-columns: 1fr; }
+    .widgets-group { grid-template-columns: 1fr 1fr; }
+}
